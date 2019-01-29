@@ -26,6 +26,13 @@ namespace HoloToolkit.Examples.InteractiveElements
         [Tooltip("Sends slider event information on Update")]
         public UnityEventFloat OnUpdateEvent;
 
+	// addtion
+	public float GetSliderValue()
+	{
+		//Debug.Log (gameObject.name + " mSliderValue: " + mSliderValue);
+		return mSliderValue;
+	}
+
         /// <summary>
         /// The value of the slider
         /// </summary>
@@ -33,21 +40,23 @@ namespace HoloToolkit.Examples.InteractiveElements
         {
             private set
             {
-                if (sliderValue != value)
+                if (mSliderValue != value)
                 {
-                    sliderValue = value;
-                    OnUpdateEvent.Invoke(sliderValue);
+                    mSliderValue = value;
+                    OnUpdateEvent.Invoke(mSliderValue);
                 }
             }
             get
             {
-                return sliderValue;
+                return mSliderValue;
             }
         }
 
         [SerializeField]
+	/*
         [Tooltip("Set the starting value for the slider here.")]
         private float sliderValue = 0;
+	*/
 
         [Tooltip("Min numeric value to display in the slider label")]
         public float MinSliderValue = 0;
@@ -62,6 +71,7 @@ namespace HoloToolkit.Examples.InteractiveElements
         public string LabelFormat = "#.##";
 
         // calculation variables
+	private float mSliderValue; // addition
         private float mValueSpan;
         private float mCachedValue;
         private float mDeltaValue;
@@ -94,8 +104,8 @@ namespace HoloToolkit.Examples.InteractiveElements
 
             if (Centered && MinSliderValue != -MaxSliderValue)
             {
-                Debug.LogError("A centered SliderGestureControl requires that the min and max values have the same absolute value, one positive and one negative.");
-                gameObject.SetActive(false);
+                //Debug.LogError("A centered SliderGestureControl requires that the min and max values have the same absolute value, one positive and one negative.");
+                //gameObject.SetActive(false);
                 return;
             }
 
@@ -117,7 +127,7 @@ namespace HoloToolkit.Examples.InteractiveElements
             mStartSliderPosition = mStartCenter + Vector3.left * mSliderMagnitude / 2;
 
             mValueSpan = MaxSliderValue - MinSliderValue;
-            sliderValue = Mathf.Clamp(SliderValue, MinSliderValue, MaxSliderValue);
+            mSliderValue = Mathf.Clamp(SliderValue, MinSliderValue, MaxSliderValue); // change
 
             if (!Centered)
             {
@@ -295,7 +305,12 @@ namespace HoloToolkit.Examples.InteractiveElements
                 }
                 else
                 {
-                    Label.text = Mathf.Round(SliderValue).ToString(LabelFormat);
+                    //Label.text = Mathf.Round(SliderValue).ToString(LabelFormat);
+
+		    // addtion
+		    // Truncate float to two decmial places */
+		    //Debug.Log(SliderValue);
+		    Label.text = SliderValue.ToString("F2");
                 }
             }
         }
