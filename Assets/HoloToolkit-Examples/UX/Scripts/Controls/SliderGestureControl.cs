@@ -307,7 +307,7 @@ namespace HoloToolkit.Examples.InteractiveElements
                 {
                     //Label.text = Mathf.Round(SliderValue).ToString(LabelFormat);
 
-		    // addtion
+		    // addition
 		    // Truncate float to two decmial places */
 		    //Debug.Log(SliderValue);
 		    Label.text = SliderValue.ToString("F2");
