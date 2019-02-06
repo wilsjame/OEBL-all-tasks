@@ -135,7 +135,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4260478832342546}
-  - component: {fileID: 114669208955324426}
+  - component: {fileID: 114059461820151262}
   m_Layer: 0
   m_Name: SpawnHotSpots
   m_TagString: Untagged
@@ -490,7 +490,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
---- !u!114 &114669208955324426
+--- !u!114 &114059461820151262
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -498,13 +498,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1967021263418476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddcd042b61579d14684833b3abce1376, type: 3}
+  m_Script: {fileID: 11500000, guid: e24618ef56d936641b0061390a1dece0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger_point: {fileID: 4825532960990108, guid: 8c60b8d1a9c9b2f4f9d611921c20cd1f,
+  trigger_point: {fileID: 4825532960990108, guid: 35fdbe69ef503004d8071147d5ccfdef,
     type: 2}
-  trial_counter: {fileID: 4848678916027204, guid: 7fa4da117bb35f84fb779827aa342ac1,
+  trial_counter: {fileID: 4848678916027204, guid: 9506d48025f2eb649b63f00b8c52c88f,
     type: 2}
-  cubes: {fileID: 4147129548001008, guid: 961e951e343812f40a4f1b14a63192d1, type: 2}
+  cubes: {fileID: 4777118309549616, guid: f63f21f413fdc094a9e9a45cd1b3aef9, type: 2}
   itr: 0
   trial: 0
+  fileName: cube_task_time_
+  path: 
