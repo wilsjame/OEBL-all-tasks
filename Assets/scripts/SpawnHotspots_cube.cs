@@ -5,7 +5,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Threading;
 
-public class SpawnHotspots : MonoBehaviour {
+public class SpawnHotspots_cube : MonoBehaviour {
 
 	/* Prefabs */
 	public Transform trigger_point;

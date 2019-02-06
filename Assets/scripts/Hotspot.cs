@@ -41,7 +41,7 @@ public class Hotspot : MonoBehaviour
             OnEntered(other.gameObject);
 
 			/* Spawn new trigger point */
-			GameObject.Find ("SpawnHotSpots").GetComponent<SpawnHotspots> ().HotSpotTriggerInstantiate ();
+			GameObject.Find ("SpawnHotSpots").GetComponent<SpawnHotspots_cube> ().HotSpotTriggerInstantiate ();
 
 			/* Remove this hotspot when triggered */
 			Destroy (this.gameObject);
