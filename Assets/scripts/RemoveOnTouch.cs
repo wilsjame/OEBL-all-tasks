@@ -5,6 +5,7 @@
 
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 namespace HoloToolkit.Unity.InputModule
 {
@@ -68,11 +69,24 @@ namespace HoloToolkit.Unity.InputModule
         private Rigidbody hostRigidbody;
         private bool hostRigidbodyWasKinematic;
 
+	/* For scene check */
+	Scene m_Scene;
+
         private void Start()
         {
 
-		/* Set object's initial color */
-		GetComponent<Renderer>().material.color = Color.white;
+		/* Return the current active scene in order to get the current scene's name */
+		m_Scene = SceneManager.GetActiveScene();
+
+		/* Color trigger point according to scene */
+		if (m_Scene.name == "pointing")
+		{
+			GetComponent<Renderer>().material.color = Color.red;
+		}
+		else if (m_Scene.name == "pointing random plane")
+		{
+			GetComponent<Renderer>().material.color = Color.white;
+		}
 
             if (HostTransform == null)
             {
@@ -104,7 +118,16 @@ namespace HoloToolkit.Unity.InputModule
 		Destroy (this.gameObject);
 
 		/* Spawn a new active point */
-		GameObject.Find ("SpawnHotSpots").GetComponent<SpawnHotspots_pointing_random_plane> ().HotSpotTriggerInstantiate ();
+		if (m_Scene.name == "pointing")
+		{
+			GameObject.Find ("SpawnHotSpots").GetComponent<SpawnHotspots_pointing> ().HotSpotTriggerInstantiate ();
+		}
+		else if (m_Scene.name == "pointing random plane")
+		{
+			GameObject.Find ("SpawnHotSpots").GetComponent<SpawnHotspots_pointing_random_plane> ().HotSpotTriggerInstantiate ();
+
+		}
+
             }
         }
 
