@@ -2,6 +2,7 @@
  * This script works in conjuction with HotSpotColorChanger.cs. */
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hotspot : MonoBehaviour
 {
@@ -13,8 +14,13 @@ public class Hotspot : MonoBehaviour
 
     private Material cachedMaterial;
 
+    Scene m_Scene;
+
     private void Start()
     {
+
+	// Return the current active scene in order to get the current scene's name
+	m_Scene = SceneManager.GetActiveScene();
 
 	/* Color hotspot according plane. */
 	cachedMaterial = GetComponent<Renderer>().material;
@@ -41,8 +47,15 @@ public class Hotspot : MonoBehaviour
             OnEntered(other.gameObject);
 
 			/* Spawn new trigger point */
-			GameObject.Find ("SpawnHotSpots").GetComponent<SpawnHotspots_cube> ().HotSpotTriggerInstantiate ();
-
+	    		if (m_Scene.name == "cube")
+			{
+				GameObject.Find ("SpawnHotSpots").GetComponent<SpawnHotspots_cube> ().HotSpotTriggerInstantiate ();
+			}
+			else if (m_Scene.name == "cube random plane")
+			{
+				GameObject.Find ("SpawnHotSpots").GetComponent<SpawnHotspots_cube_random_plane> ().HotSpotTriggerInstantiate ();
+			}
+		
 			/* Remove this hotspot when triggered */
 			Destroy (this.gameObject);
         }
