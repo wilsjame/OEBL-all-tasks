@@ -2,6 +2,9 @@
 Library/
 Temp/
 UnityPackageManager/
+App/ 
+UWP/
+.vs/
 *.swp
 *.csproj
 *.sln
