@@ -11,6 +11,7 @@ public class SpawnHotspots_cube : MonoBehaviour {
 	public Transform trigger_point;
 	public Transform trial_counter;
 	public Transform cubes;
+	private GameObject camera;
 
 	/* Global variables */
 	/* Encapsulate coordinates */
@@ -41,6 +42,10 @@ public class SpawnHotspots_cube : MonoBehaviour {
 	/* Use this for initialization */
 	void Start () 
 	{
+
+		// Position camera
+		camera = GameObject.Find("MixedRealityCameraParent");
+		camera.transform.position = new Vector3(0.0f, 0.3f, -2.0f);
 
 		// Create unique out file 
 		fileName = fileName + System.DateTime.Now + ".txt";

@@ -16,6 +16,7 @@ public class SpawnHotspots_pointing : MonoBehaviour {
 	/* Prefabs */
 	public Transform static_point;
 	public Transform trigger_point;
+	private GameObject camera;
 
 	/* Encapsulated trial counter coordinates */ 
 	public struct CoOrds
@@ -45,6 +46,10 @@ public class SpawnHotspots_pointing : MonoBehaviour {
 
 	/* Use this for initialization */
 	void Start () {
+
+		// Position camera
+		camera = GameObject.Find("MixedRealityCameraParent");
+		camera.transform.position = new Vector3(0.0f, 0.0f, -2.75f);
 
 		// Create unique out file 
 		fileName = fileName + System.DateTime.Now + ".txt";
