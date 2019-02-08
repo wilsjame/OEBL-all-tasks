@@ -314,6 +314,19 @@ Prefab:
       propertyPath: sceneMapping.Array.data[5].IsButtonEnabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 102150211965573986, guid: a3f14aa6417acfa4ea1c4feb6af974ab,
+        type: 2}
+      propertyPath: m_Text
+      value: Scene Selection
+      objectReference: {fileID: 0}
+    - target: {fileID: 102639908367590550, guid: a3f14aa6417acfa4ea1c4feb6af974ab,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Air tap a scene to load it.
+
+        When finished with a scene, say "Scene Launcher" or press the Backspace key
+        to return the this scene list.'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3f14aa6417acfa4ea1c4feb6af974ab, type: 2}
   m_IsPrefabParent: 0
